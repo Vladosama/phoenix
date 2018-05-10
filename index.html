@@ -8,6 +8,8 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="assets/ico/phoenix.ico">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<title>凤鸣九天</title>
 
@@ -75,42 +77,14 @@
 
 	<section id="videos"></section>
 	<div class="container">
-		<div class="row centered mt mb">
+		<div class="row centered mt mb" id="app">
 			<h1>Videos</h1>
-			<div class="col-lg-3 col-md-4 col-sm-6 gallery">
-				<a href="http://v.youku.com/v_show/id_XMzQwMjIzNTM5Ng==.html?spm=a2h3j.8428770.3416059.1" target="_blank">
-					<img src="assets/videos/kai-sue.JPG" class="img-responsive">
+			<div v-for="video in videos" class="col-lg-3 col-md-4 col-sm-6 gallery">
+				<a v-bind="{href:video.src}" target="_blank">
+					<img v-bind="{src:video.img}" class="img-responsive">
 				</a>
 				<p>
-					<br />凯爹王者时刻 by Sue</p>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 gallery">
-				<a href="http://v.youku.com/v_show/id_XMzM5NjM5NjcxNg==.html?spm=a2h3j.8428770.3416059.1" target="_blank">
-					<img src="assets/videos/yase-wang.JPG" class="img-responsive">
-				</a>
-				<p>
-					<br />亚瑟王者时刻 by 行者都督</p>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 gallery">
-				<a href="http://v.youku.com/v_show/id_XMzM5NjM5NDk3Ng==.html?spm=a2h3j.8428770.3416059.1" target="_blank">
-					<img src="assets/videos/mozi-sun.JPG" class="img-responsive">
-				</a>
-				<p>
-					<br />墨子王者时刻 by 木叶西凉</p>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 gallery">
-				<a href="http://v.youku.com/v_show/id_XMzM5NjM5NDM1Mg==.html?spm=a2h3j.8428770.3416059.1" target="_blank">
-					<img src="assets/videos/mengqi-vladosama.JPG" class="img-responsive">
-				</a>
-				<p>
-					<br />AD梦奇王者时刻 by Vladosama</p>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-6 gallery">
-				<a href="http://v.youku.com/v_show/id_XMzM5NjM4MzM2OA==.html?spm=a2h3j.8428770.3416059.1" target="_blank">
-					<img src="assets/videos/yuji-vladosama.JPG" class="img-responsive">
-				</a>
-				<p>
-					<br />虞姬王者时刻 by Vladosama</p>
+						<br />{{ video.title }}</p>
 			</div>
 		</div>
 		<! --/row -->
@@ -159,13 +133,12 @@
 	<! --/footerwrap -->
 
 
-
+	<script src="assets/js/videos.js"></script>
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="assets/js/jquery.min.js"></script>
-</body>
-<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
